@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="90">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>Biquad.h</itemPath>
+      <itemPath>ComplementaryFilter.h</itemPath>
+      <itemPath>Filtered_data.h</itemPath>
+      <itemPath>Force_to_wing_angle.h</itemPath>
+      <itemPath>Sensor.h</itemPath>
+      <itemPath>pid.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <itemPath>Biquad.cpp</itemPath>
+      <itemPath>ComplementaryFilter.cpp</itemPath>
+      <itemPath>Filtered_data.cpp</itemPath>
+      <itemPath>Force_to_wing_angle.cpp</itemPath>
+      <itemPath>Sensor.cpp</itemPath>
+      <itemPath>pid.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <itemPath>DataStore.cpp</itemPath>
+    <itemPath>DataStore.h</itemPath>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="Biquad.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Biquad.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ComplementaryFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ComplementaryFilter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DataStore.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataStore.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Filtered_data.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Filtered_data.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Force_to_wing_angle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Force_to_wing_angle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sensor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sensor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pid.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="Biquad.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Biquad.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ComplementaryFilter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ComplementaryFilter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DataStore.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataStore.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Filtered_data.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Filtered_data.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Force_to_wing_angle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Force_to_wing_angle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sensor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sensor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pid.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

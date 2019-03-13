@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
-CND_DLIB_EXT=so
+CND_PLATFORM=Cygwin-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/DataStore.o \
 	${OBJECTDIR}/Filtered_data.o \
 	${OBJECTDIR}/Force_to_wing_angle.o \
+	${OBJECTDIR}/PID_caller.o \
 	${OBJECTDIR}/Sensor.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/pid.o
@@ -63,9 +64,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/controll_system_sbt
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/controll_system_sbt.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/controll_system_sbt: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/controll_system_sbt.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/controll_system_sbt ${OBJECTFILES} ${LDLIBSOPTIONS}
 
@@ -94,6 +95,11 @@ ${OBJECTDIR}/Force_to_wing_angle.o: Force_to_wing_angle.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Force_to_wing_angle.o Force_to_wing_angle.cpp
 
+${OBJECTDIR}/PID_caller.o: PID_caller.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/PID_caller.o PID_caller.cpp
+
 ${OBJECTDIR}/Sensor.o: Sensor.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
@@ -115,7 +121,7 @@ ${OBJECTDIR}/pid.o: pid.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/controll_system_sbt
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/controll_system_sbt.exe
 
 # Subprojects
 .clean-subprojects:

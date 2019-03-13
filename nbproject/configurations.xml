@@ -6,8 +6,10 @@
                    projectFiles="true">
       <itemPath>Biquad.h</itemPath>
       <itemPath>ComplementaryFilter.h</itemPath>
+      <itemPath>DataStore.h</itemPath>
       <itemPath>Filtered_data.h</itemPath>
       <itemPath>Force_to_wing_angle.h</itemPath>
+      <itemPath>PID_caller.h</itemPath>
       <itemPath>Sensor.h</itemPath>
       <itemPath>pid.h</itemPath>
     </logicalFolder>
@@ -16,8 +18,10 @@
                    projectFiles="true">
       <itemPath>Biquad.cpp</itemPath>
       <itemPath>ComplementaryFilter.cpp</itemPath>
+      <itemPath>DataStore.cpp</itemPath>
       <itemPath>Filtered_data.cpp</itemPath>
       <itemPath>Force_to_wing_angle.cpp</itemPath>
+      <itemPath>PID_caller.cpp</itemPath>
       <itemPath>Sensor.cpp</itemPath>
       <itemPath>pid.cpp</itemPath>
     </logicalFolder>
@@ -37,8 +41,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>DataStore.cpp</itemPath>
-    <itemPath>DataStore.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -69,6 +71,10 @@
       <item path="Force_to_wing_angle.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Force_to_wing_angle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PID_caller.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PID_caller.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sensor.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -120,6 +126,10 @@
       <item path="Force_to_wing_angle.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Force_to_wing_angle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PID_caller.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PID_caller.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sensor.cpp" ex="false" tool="1" flavor2="0">
       </item>

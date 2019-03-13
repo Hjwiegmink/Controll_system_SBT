@@ -7,11 +7,18 @@
 
 #ifndef COMPLEMENTARYFILTER_H
 #define	COMPLEMENTARYFILTER_H
+#include "DataStore.h"
+#include <stdio.h>      /* printf */
+#include <math.h>       /* sin */
 class ComplementaryFilter {
 public:
+    
+    
     ComplementaryFilter();
     ComplementaryFilter(const ComplementaryFilter& orig);
-    float CalculateRealHeight(float angle_left, float angle_right, float accel_z, float Xsens_roll);
+    DataStore *m_filtered_data;
+    DataStore *m_complementary_data;
+    void CalculateRealHeight();
     virtual ~ComplementaryFilter();
 private:
 

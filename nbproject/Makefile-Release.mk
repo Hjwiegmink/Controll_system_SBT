@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/DataStore.o \
 	${OBJECTDIR}/Filtered_data.o \
 	${OBJECTDIR}/Force_to_wing_angle.o \
+	${OBJECTDIR}/PID_caller.o \
 	${OBJECTDIR}/Sensor.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/pid.o
@@ -93,6 +94,11 @@ ${OBJECTDIR}/Force_to_wing_angle.o: Force_to_wing_angle.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Force_to_wing_angle.o Force_to_wing_angle.cpp
+
+${OBJECTDIR}/PID_caller.o: PID_caller.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/PID_caller.o PID_caller.cpp
 
 ${OBJECTDIR}/Sensor.o: Sensor.cpp 
 	${MKDIR} -p ${OBJECTDIR}

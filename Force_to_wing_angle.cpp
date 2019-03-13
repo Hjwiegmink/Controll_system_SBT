@@ -6,6 +6,7 @@
  */
 
 #include "Force_to_wing_angle.h"
+#include "DataStore.h"
 #include <iostream>
 #include <cmath>
 
@@ -18,13 +19,17 @@ control::ForceToWingAngle::ForceToWingAngle(const ForceToWingAngle& orig) {
 control::ForceToWingAngle::~ForceToWingAngle() {
 }
 
-float control::ForceToWingAngle::MMA(float roll_force, float pitch_force, float height_force, float velocity, float pitch_angle) {
+void control::ForceToWingAngle::MMA() {
     /* First we will start with the MMA. This is the motor mixing algorithm that 
      * divides the incoming forces from the 3 PID controllers in 3 different 
      * forces that the wings should deliver. The MMA consists of a matrix, that 
      * has to be inversed to calculate the right forces per wing. 
     */
-    
+   DataStore::PIDDataTotal input =m_PID_data-> GetPIDData();
+   DataStore::RealData input2 =m_complementary_data-> GetComplementaryData();
+   DataStore::AngleWings output;
+   
+   float velocity = 5;
     int i, j;
     float matrix_MMA[3][3] = {
         {1, 1, 1},
@@ -59,9 +64,9 @@ float control::ForceToWingAngle::MMA(float roll_force, float pitch_force, float 
         //std::cout << (inverse_matrix_MMA[1][1]) << "\t";
      
      
-     float left_force = inverse_matrix_MMA[0][0] * height_force + inverse_matrix_MMA[0][1] * pitch_force + inverse_matrix_MMA[0][2] * roll_force;
-     float right_force = inverse_matrix_MMA[1][0] * height_force + inverse_matrix_MMA[1][1] * pitch_force + inverse_matrix_MMA[1][2] * roll_force;
-     float back_force = inverse_matrix_MMA[2][0] * height_force + inverse_matrix_MMA[2][1] * pitch_force + inverse_matrix_MMA[2][2] * roll_force;
+     float left_force = inverse_matrix_MMA[0][0] * input.Force_height + inverse_matrix_MMA[0][1] * input.Force_pitch + inverse_matrix_MMA[0][2] * input.Force_roll;
+     float right_force = inverse_matrix_MMA[1][0] * input.Force_height + inverse_matrix_MMA[1][1] * input.Force_pitch + inverse_matrix_MMA[1][2] * input.Force_roll;
+     float back_force = inverse_matrix_MMA[2][0] * input.Force_height + inverse_matrix_MMA[2][1] * input.Force_pitch + inverse_matrix_MMA[2][2] * input.Force_roll;
      
      /* Now we know the forces that each wing should generate to fly, we should 
       * also calculate the angle that the wings should have to generate this 
@@ -87,15 +92,14 @@ float control::ForceToWingAngle::MMA(float roll_force, float pitch_force, float 
      float back_angle_total = back_lift_coefficient / kLiftSlope;
       
      //calculate the final wing angles
-     float left_wing_angle = left_angle_total - pitch_angle + kZeroLiftAngle;
-     float right_wing_angle = right_angle_total - pitch_angle + kZeroLiftAngle;
-     float back_wing_angle = back_angle_total - pitch_angle + kZeroLiftAngle;
-      
-     std::cout << (left_wing_angle) << '\t';
+     output.Wing_left = left_angle_total - input2.Real_pitch + kZeroLiftAngle;
+     output.Wing_right = right_angle_total - input2.Real_pitch + kZeroLiftAngle;
+     output.Wing_back  = back_angle_total - input2.Real_pitch + kZeroLiftAngle;
      
-     return left_wing_angle;
-     return right_wing_angle;
-     return back_wing_angle;
+     printf("%f,%f,%f",output.Wing_left, output.Wing_right,output.Wing_back); 
+     
+     m_FtoW_data->PutWingData(&output);
+     return ;
      /*Now we can calculate the angle that the maxon motor should make in such 
       * a way that the wing is making the right angle.   
       */

@@ -7,6 +7,7 @@
 
 #ifndef _PID_H_
 #define _PID_H_
+#include "DataStore.h"
 namespace control{
 
 class PIDImpl
@@ -15,7 +16,6 @@ class PIDImpl
         PIDImpl( double dt, double Kp, double Kd, double Ki );
         ~PIDImpl();
         double calculate( double setpoint, double pv );
-
     private:
         double _dt;
         double _max;

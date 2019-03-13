@@ -26,18 +26,16 @@ void Sensor::get_data(){
 
     // Produceer random test date
     
-    DataStore::xsens_struct Xsensor_waarde;
-    DataStore::AngleSensor Anglesensor_waarde;
+    DataStore::sensor_struct sensor_waarde;
 
     cout << "Called sensor::get_data(): " ;
-    Xsensor_waarde.pitch = rand() % 100; 
-    Xsensor_waarde.roll = rand() % 100; 
-    Xsensor_waarde.Z_accel = (rand() % 5 + 1)/10; 
-    Anglesensor_waarde.angle_left = rand() % 100; 
-    Anglesensor_waarde.angle_right= rand() % 100; 
-    m_ruwe_state_data->PutXsensData(&Xsensor_waarde);
-    m_ruwe_state_data->PutAnglesensData(&Anglesensor_waarde);
-    printf("%f,%f,%f,%f,%f",Xsensor_waarde.pitch, Xsensor_waarde.roll, Xsensor_waarde.Z_accel, Anglesensor_waarde.angle_left, Anglesensor_waarde.angle_right);
+    sensor_waarde.pitch = rand() % 100; 
+    sensor_waarde.roll = rand() % 100; 
+    sensor_waarde.Z_accel = (rand() % 5 + 1)/10; 
+    sensor_waarde.angle_left = rand() % 100; 
+    sensor_waarde.angle_right= rand() % 100; 
+    m_ruwe_state_data->PutSensorData(&sensor_waarde);
+    printf("%f,%f,%f,%f,%f",sensor_waarde.pitch, sensor_waarde.roll, sensor_waarde.Z_accel, sensor_waarde.angle_left, sensor_waarde.angle_right);
 }
 
 bool Sensor::data_op(){

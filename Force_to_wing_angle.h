@@ -7,16 +7,19 @@
 
 #ifndef FORCE_TO_WING_ANGLE_H
 #define	FORCE_TO_WING_ANGLE_H
-
+#include "DataStore.h"
 namespace control{
 
 class ForceToWingAngle {
 public:
+
     ForceToWingAngle();
     ForceToWingAngle(const ForceToWingAngle& orig);
+    DataStore *m_PID_data;
+    DataStore *m_FtoW_data;
+    DataStore *m_complementary_data;
     virtual ~ForceToWingAngle();
-    
-    float MMA(float roll_force, float pitch_force, float height_force, float velocity, float pitch_angle);    
+    void MMA();    
 private:
 
 };   
